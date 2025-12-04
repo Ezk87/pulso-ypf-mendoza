@@ -69,7 +69,7 @@ HTML_FORM = """
         </select>
       </div>
       <div>
-        <label>eNPS (0–10)</label>
+        <label>¿Qué tan probable es que recomiendes trabajar acá? (0–10)</label>
         <input type="number" name="enps" min="0" max="10" required>
       </div>
     </div>
