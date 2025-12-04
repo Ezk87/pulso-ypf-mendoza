@@ -11,19 +11,11 @@ TENURES = ["0–6m", "6–24m", "2–5a", "5+a"]
 MIN_GROUP_SIZE = 5  # no mostrar métricas si n < 5
 
 QUESTIONS = [
-    "Trabajo seguro en mi estación.",
-    "Cuento con EPP adecuado (guantes, gafas, etc.).",
-    "Se cumplen los procedimientos de seguridad en el turno.",
-    "Dispongo de pausas suficientes.",
-    "Mi encargado da feedback claro y respetuoso.",
-    "Puedo reportar problemas sin represalias.",
-    "Me siento parte del equipo.",
-    "Sé qué se espera de mi rol.",
-    "Tengo oportunidades de aprender.",
-    "Se respetan horas y francos.",
-    "El sistema de pagos es claro.",
-    "Hay personal suficiente en mi turno.",
-    "El mantenimiento acompaña el trabajo."
+    "¿Sentís que los turnos y horarios se están asignando de manera justa?",
+    "¿La carga de trabajo en tu turno te parece razonable?",
+    "¿Te sentís seguro/a trabajando en tu turno actual?",
+    "Si alguna vez trabajás turno noche: ¿sentís que hay suficiente seguridad para trabajar tranquilo/a?",
+    "¿Sentís que tenés oportunidades claras para ganar incentivos o extras?"
 ]
 
 DATA_DIR = os.environ.get("DATA_DIR", ".")   # por defecto, carpeta actual
