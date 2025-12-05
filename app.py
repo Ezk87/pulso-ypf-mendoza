@@ -5,7 +5,10 @@ import csv, os, datetime, statistics, json, urllib.request
 app = Flask(__name__)
 
 # --- CONFIGURACIÓN ---
-STATIONS = ["A", "B", "C"]  # editar si agregan más
+STATIONS = [
+    "Wind S.A. - Estación de Servicio YPF",
+    "Estación de Servicio Gral. Las Heras S.R.L."
+]
 SHIFTS = ["Mañana", "Tarde", "Noche"]
 TENURES = ["0–6m", "6–24m", "2–5a", "5+a"]
 MIN_GROUP_SIZE = 5  # no mostrar métricas si n < 5
@@ -53,6 +56,7 @@ HTML_FORM = """
       <div>
         <label>Estación</label>
         <select name="station" required>
+          <option value="" disabled selected>Elegí una estación</option>
           {% for s in stations %}<option value="{{s}}">{{s}}</option>{% endfor %}
         </select>
       </div>
