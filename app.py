@@ -125,7 +125,19 @@ HTML_METODO = """
   <a href="/">Volver</a>
 </div>
 """
-
+def send_to_sheet(row: dict):
+    if not SHEET_URL:
+        return
+    try:
+        data = json.dumps(row).encode("utf-8")
+        req = urllib.request.Request(
+            SHEET_URL,
+            data=data,
+            headers={"Content-Type": "application/json"}
+        )
+        urllib.request.urlopen(req, timeout=5)
+    except Exception as e:
+        print("Error enviando a Google Sheets:", e)
 def ensure_csv_header():
     exists = os.path.exists(CSV_FILE)
     if not exists:
