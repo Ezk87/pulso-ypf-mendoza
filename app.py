@@ -10,7 +10,12 @@ STATIONS = [
     "Estación de Servicio Gral. Las Heras S.R.L."
 ]
 SHIFTS = ["Mañana", "Tarde", "Noche"]
-TENURES = ["0–6m", "6–24m", "2–5a", "5+a"]
+TENURES = [
+    "0–6 meses",
+    "6–24 meses",
+    "2–5 años",
+    "Más de 5 años"
+]
 MIN_GROUP_SIZE = 5  # no mostrar métricas si n < 5
 
 QUESTIONS = [
@@ -63,12 +68,14 @@ HTML_FORM = """
       <div>
         <label>Turno</label>
         <select name="shift" required>
+          <option value="" disabled selected>Elegí un turno</option>
           {% for s in shifts %}<option value="{{s}}">{{s}}</option>{% endfor %}
         </select>
       </div>
       <div>
         <label>Antigüedad</label>
         <select name="tenure" required>
+          <option value="" disabled selected>Elegí tu antigüedad</option>
           {% for t in tenures %}<option value="{{t}}">{{t}}</option>{% endfor %}
         </select>
       </div>
