@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, render_template_string, request, redirect, url_for
-import csv, os, datetime, statistics
+import csv, os, datetime, statistics, json, urllib.request
 
 app = Flask(__name__)
 
@@ -20,7 +20,7 @@ QUESTIONS = [
 
 DATA_DIR = os.environ.get("DATA_DIR", ".")   # por defecto, carpeta actual
 CSV_FILE = os.path.join(DATA_DIR, "respuestas.csv")
-
+SHEET_URL = "https://script.google.com/macros/s/AKfycbwKMNJk0rC2WJglgaMChLpQXT36mWbMGkYk-B4JajzIyeVBU3r6h9b_I3aPMgeQBru5mg/exec"
 
 HTML_FORM = """
 <!doctype html>
