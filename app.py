@@ -162,6 +162,7 @@ def survey():
         for i,_ in enumerate(QUESTIONS):
             row[f"q{i+1}"] = request.form[f"q{i}"]
         write_csv(row)
+        send_to_sheet(row)
         return redirect("/gracias")
     return render_template_string(HTML_FORM, questions=QUESTIONS, stations=STATIONS, shifts=SHIFTS, tenures=TENURES, min_group=MIN_GROUP_SIZE, version="1.0")
 
