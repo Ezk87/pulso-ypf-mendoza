@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, render_template_string, request, redirect, url_for, make_response
 import csv, os, datetime, statistics, json, urllib.request
+GOOGLE_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwKMNJk0rC2WJglgaMChLpQXT36mWbMGkYk-B4JajzIyeVBU3r6h9b_I3aPMgeQBru5mg/exec"
 
 app = Flask(__name__)
 
