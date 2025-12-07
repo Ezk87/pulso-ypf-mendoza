@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from flask import Flask, render_template_string, request, redirect, url_for
+from flask import Flask, render_template_string, request, redirect, url_for, make_response
 import csv, os, datetime, statistics, json, urllib.request
 
 app = Flask(__name__)
@@ -160,6 +160,11 @@ def ensure_csv_header():
 @app.route("/", methods=["GET","POST"])
 def survey():
     ensure_csv_header()
+
+    # Si ya respondió desde este dispositivo en los últimos 7 días, bloquear
+    if request.cookies.get("completed") == "yes":
+        return "<h3>Ya respondiste esta encuesta en esta semana. Muchas gracias.</h3>"
+
     if request.method == "POST":
         row = {
             "timestamp": datetime.datetime.now().isoformat(timespec="seconds"),
@@ -173,9 +178,21 @@ def survey():
         for i,_ in enumerate(QUESTIONS):
             row[f"q{i+1}"] = request.form[f"q{i}"]
         write_csv(row)
-        send_to_sheet(row)
-        return redirect("/gracias")
-    return render_template_string(HTML_FORM, questions=QUESTIONS, stations=STATIONS, shifts=SHIFTS, tenures=TENURES, min_group=MIN_GROUP_SIZE, version="1.0")
+
+        # Seteamos cookie para bloquear nuevas respuestas desde el mismo dispositivo por 7 días
+        resp = make_response(redirect("/gracias"))
+        resp.set_cookie("completed", "yes", max_age=60*60*24*7)  # 7 días
+        return resp
+
+    return render_template_string(
+        HTML_FORM,
+        questions=QUESTIONS,
+        stations=STATIONS,
+        shifts=SHIFTS,
+        tenures=TENURES,
+        min_group=MIN_GROUP_SIZE,
+        version="1.0"
+    )
 
 @app.route("/gracias")
 def gracias():
