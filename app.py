@@ -179,6 +179,7 @@ def survey():
         for i,_ in enumerate(QUESTIONS):
             row[f"q{i+1}"] = request.form[f"q{i}"]
         write_csv(row)
+        send_to_sheet(row)
 
         # Seteamos cookie para bloquear nuevas respuestas desde el mismo dispositivo por 7 días
         resp = make_response(redirect("/gracias"))
