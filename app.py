@@ -23,8 +23,7 @@ QUESTIONS = [
     "Pensando en tu trabajo diario, ¿cuál de estos temas debería ser la prioridad de mejora ahora mismo?",
     "En el turno noche, ¿qué es lo que más impacta en cómo te sentís trabajando?",
     "¿Cuál de estas opciones creés que mejoraría más la experiencia en el turno noche?",
-    "Cuando se hacen cambios de turnos o ajustes, ¿sentís que se explican de forma clara?",
-    "¿Qué cambio simple y concreto creés que podría implementarse en el corto plazo?"
+    "Cuando se hacen cambios de turnos o ajustes, ¿sentís que se explican de forma clara?"
 ]
 
 DATA_DIR = os.environ.get("DATA_DIR", ".")   # por defecto, carpeta actual
