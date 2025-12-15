@@ -20,11 +20,11 @@ TENURES = [
 MIN_GROUP_SIZE = 5  # no mostrar métricas si n < 5
 
 QUESTIONS = [
-    "¿Sentís que los turnos y horarios se están asignando de manera justa?",
-    "¿La carga de trabajo en tu turno te parece razonable?",
-    "¿Te sentís seguro/a trabajando en tu turno actual?",
-    "Si alguna vez trabajás turno noche: ¿sentís que hay suficiente seguridad para trabajar tranquilo/a?",
-    "¿Sentís que tenés oportunidades claras para ganar incentivos o extras?"
+    "Pensando en tu trabajo diario, ¿cuál de estos temas debería ser la prioridad de mejora ahora mismo?",
+    "En el turno noche, ¿qué es lo que más impacta en cómo te sentís trabajando?",
+    "¿Cuál de estas opciones creés que mejoraría más la experiencia en el turno noche?",
+    "Cuando se hacen cambios de turnos o ajustes, ¿sentís que se explican de forma clara?",
+    "¿Qué cambio simple y concreto creés que podría implementarse en el corto plazo?"
 ]
 
 DATA_DIR = os.environ.get("DATA_DIR", ".")   # por defecto, carpeta actual
