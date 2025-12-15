@@ -101,14 +101,10 @@ HTML_FORM = """
       {% endfor %}
     </div>
     <div class="full">
-      <label>¿Qué está funcionando bien?</label>
+      <label>¿Qué cambio simple y concreto creés que podría implementarse en el corto plazo?</label>
       <textarea name="open_good" rows="2"></textarea>
     </div>
-    <div class="full">
-      <label>¿Qué deberíamos mejorar primero?</label>
-      <textarea name="open_better" rows="2"></textarea>
-    </div>
-    <button type="submit" class="primary">Enviar</button>
+        <button type="submit" class="primary">Enviar</button>
   </form>
   <p class="muted">Versión {{version}} · <a href="{{url_for('metodo')}}">Método y Privacidad</a></p>
 </body>
