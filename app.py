@@ -20,9 +20,6 @@ TENURES = [
 MIN_GROUP_SIZE = 5  # no mostrar métricas si n < 5
 
 QUESTIONS = [
-    "Pensando en tu trabajo diario, ¿cuál de estos temas debería ser la prioridad de mejora ahora mismo?",
-    "En el turno noche, ¿qué es lo que más impacta en cómo te sentís trabajando?",
-    "¿Cuál de estas opciones creés que mejoraría más la experiencia en el turno noche?",
     "Cuando se hacen cambios de turnos o ajustes, ¿sentís que se explican de forma clara?"
 ]
 
@@ -85,6 +82,39 @@ HTML_FORM = """
       </div>
     </div>
     <div class="full">
+    <div style="margin:10px 0;">
+  <label>1) Pensando en tu trabajo diario, ¿cuál de estos temas debería ser la prioridad de mejora ahora mismo?</label>
+  <select name="q0" required>
+    <option value="" disabled selected>Elegí una opción</option>
+    <option value="Seguridad noche">Seguridad en turno noche</option>
+    <option value="Turnos">Organización de turnos y rotaciones</option>
+    <option value="Carga">Carga de trabajo / dotación</option>
+    <option value="Oportunidades">Oportunidades e incentivos</option>
+    <option value="Otro">Otro</option>
+  </select>
+</div>
+<div style="margin:10px 0;">
+  <label>2) En el turno noche, ¿qué es lo que más impacta en cómo te sentís trabajando?</label>
+  <select name="q1" required>
+    <option value="" disabled selected>Elegí una opción</option>
+    <option value="Solo">Trabajar solo/a</option>
+    <option value="Apoyo">Falta de apoyo en momentos puntuales</option>
+    <option value="Organizacion">Organización del turno</option>
+    <option value="Entorno">Entorno / iluminación</option>
+    <option value="No noche">No trabajo turno noche</option>
+  </select>
+</div>
+<div style="margin:10px 0;">
+  <label>3) ¿Cuál de estas opciones creés que mejoraría más la experiencia en el turno noche?</label>
+  <select name="q2" required>
+    <option value="" disabled selected>Elegí una opción</option>
+    <option value="Rotacion">Mayor rotación del turno noche</option>
+    <option value="Refuerzo">Refuerzo en horarios críticos</option>
+    <option value="Protocolos">Protocolos claros para ausencias</option>
+    <option value="Comunicacion">Mejor coordinación / comunicación</option>
+    <option value="Ninguna">Ninguna de estas</option>
+  </select>
+</div>
       <p><b>Indicá tu acuerdo (1 = Totalmente en desacuerdo, 5 = Totalmente de acuerdo)</b></p>
       {% for q in questions %}
         <div style="margin:10px 0;">
